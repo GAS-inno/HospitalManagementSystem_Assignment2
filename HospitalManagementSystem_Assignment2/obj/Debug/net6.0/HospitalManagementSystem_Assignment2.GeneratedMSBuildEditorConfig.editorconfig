@@ -1,0 +1,95 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HospitalManagementSystem_Assignment2
+build_property.RootNamespace = HospitalManagementSystem_Assignment2
+build_property.ProjectDir = C:\Development\Csharp_Projects\HospitalManagementSystem_Assignment2\HospitalManagementSystem_Assignment2\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Development\Csharp_Projects\HospitalManagementSystem_Assignment2\HospitalManagementSystem_Assignment2
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Admin/AccountManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNjb3VudE1hbmFnZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Admin/CreateAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQWNjb3VudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Admin/EditDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdERvY3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Admin/EditPatient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFBhdGllbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Doctor/BookingList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXEJvb2tpbmdMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Doctor/CompleteAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXENvbXBsZXRlQXR0ZW5kYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Home/Service.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZXJ2aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Patient/BookingOverview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxCb29raW5nT3ZlcnZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Patient/CreateBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxDcmVhdGVCb29raW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Development/Csharp_Projects/HospitalManagementSystem_Assignment2/HospitalManagementSystem_Assignment2/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hual8my4b8

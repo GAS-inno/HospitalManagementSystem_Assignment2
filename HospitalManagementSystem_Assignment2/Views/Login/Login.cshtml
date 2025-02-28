@@ -1,0 +1,66 @@
+﻿@model HospitalManagementSystem_Assignment2.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center">
+    <h1 class="display-2">@ViewData["Title"]</h1>
+</div>
+
+<div class="container">
+    <form asp-action="Login" method="post" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="Email">
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="Password">
+        </div>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+<br />
+<br />
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div id="error-message" class="alert alert-danger" style="display: none;">
+    Please enter both Email and Password.
+</div>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+
+    <script>
+        function validateForm() {
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const errorMessage = document.getElementById("error-message");
+
+            // Display error message if email or password is empty
+            if (!email || !password) {
+                errorMessage.style.display = "block";
+                return false; // Prevent form submission
+            }
+            
+            // Hide error message if inputs are valid
+            errorMessage.style.display = "none";
+            return true;
+        }
+    </script>
+

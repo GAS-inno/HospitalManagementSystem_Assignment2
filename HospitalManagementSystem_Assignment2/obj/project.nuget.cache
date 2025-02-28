@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oK8vsFk6Lh8=",
+  "success": true,
+  "projectFilePath": "C:\\Development\\Csharp_Projects\\HospitalManagementSystem_Assignment2\\HospitalManagementSystem_Assignment2\\HospitalManagementSystem_Assignment2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\GASAW\\.nuget\\packages\\mstest.testadapter\\3.1.1\\mstest.testadapter.3.1.1.nupkg.sha512",
+    "C:\\Users\\GASAW\\.nuget\\packages\\mstest.testframework\\3.1.1\\mstest.testframework.3.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

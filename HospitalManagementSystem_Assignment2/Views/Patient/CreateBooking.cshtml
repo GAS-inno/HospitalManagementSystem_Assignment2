@@ -1,0 +1,126 @@
+﻿@model HospitalManagementSystem_Assignment2.Models.Booking
+
+@{
+    ViewData["Title"] = "Create a New Booking";
+}
+
+<div class="text-center">
+    <h1 class="display-3">@ViewData["Title"]</h1>
+</div>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@using (Html.BeginForm("CreateBooking", "Patient", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.BookingDate, "Booking Date")
+        @Html.TextBoxFor(m => m.BookingDate, new { @class = "form-control", @type = "date", @id = "bookingDateInput" })
+        @Html.ValidationMessageFor(m => m.BookingDate, "", new { @class = "text-danger" })
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BookingTime, "Booking Time")
+        @Html.DropDownListFor(m => m.BookingTime, GetAvailableTimeSlots(), new { @class = "form-control", @id = "bookingTimeInput" })
+        @Html.ValidationMessageFor(m => m.BookingTime, "", new { @class = "text-danger" })
+    </div>
+    <br />
+
+    <div id="doctorSelection" class="form-group">
+        @Html.Label("Choose a Doctor")
+        <select id="doctorDropdown" name="selectedDoctor" class="form-control">
+            <option value="">Please select a doctor</option>
+        </select>
+        @Html.ValidationMessage("selectedDoctor", new { @class = "text-danger" })
+    </div>
+    <br />
+
+    <div class="form-group">
+        <input type="submit" value="Confirm Booking" id="submitBtn" class="btn btn-success" />
+        <a href="@Url.Action("BookingOverview", "Patient", new { id = TempData["UserId"] })" class="btn btn-danger">Cancel</a>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // When either BookingDate or BookingTime changes, fetch doctors
+            $('#bookingDateInput, #bookingTimeInput').change(function () {
+                var selectedDate = $('#bookingDateInput').val();
+                var selectedTime = $('#bookingTimeInput').val();
+
+                if (!selectedDate || !selectedTime) {
+                    $('#doctorDropdown').empty().append('<option value="">Please select a doctor</option>');
+                    return;
+                }
+
+                const selectedBookingDate = new Date(selectedDate);
+                const currentDate = new Date();
+
+                // Reset both dates' time portion to midnight for accurate comparison
+                selectedBookingDate.setHours(0, 0, 0, 0);
+                currentDate.setHours(0, 0, 0, 0);
+
+                if (selectedBookingDate < currentDate) {
+                    alert("The selected date cannot be in the past.");
+                    $('#bookingDateInput').val(currentDate.toISOString().split("T")[0]); // Reset to today's date
+                    $('#doctorDropdown').empty().append('<option value="">Please select a doctor</option>');
+                    return;
+                }
+
+                $.getJSON('@Url.Action("GetDoctorList", "Patient")', { bookingDate: selectedDate, bookingTime: selectedTime })
+                    .done(function (data) {
+                        $('#doctorDropdown').empty(); // Clear previous options
+                        $('#doctorDropdown').append('<option value="">Please select a doctor</option>');
+
+                        // Populate the dropdown list with doctors
+                        $.each(data, function (index, doctor) {
+                            $('#doctorDropdown').append('<option value="' + doctor.employeeID + '">' + doctor.doctorName + '</option>');
+                        });
+                    })
+                    .fail(function (error) {
+                        console.log(error);
+                        alert("An error occurred while fetching the doctor list.");
+                        $('#doctorDropdown').empty().append('<option value="">Please select a doctor</option>');
+                    });
+            });
+
+            $('#submitBtn').click(function (e) {
+                if ($("#doctorDropdown").val() === "") {
+                    e.preventDefault(); // Prevent form submission
+                    alert("Please select a doctor.");
+                }
+            });
+        });
+    </script>
+}
+
+@functions {
+    // Function to generate time slots between 8 AM and 6 PM in 1-hour intervals
+    public List<SelectListItem> GetAvailableTimeSlots()
+    {
+        var timeSlots = new List<SelectListItem>();
+        TimeSpan start = TimeSpan.FromHours(8);
+        TimeSpan end = TimeSpan.FromHours(18);
+
+        while (start <= end)
+        {
+            timeSlots.Add(new SelectListItem { Text = start.ToString(@"hh\:mm"), Value = start.ToString(@"hh\:mm") });
+            start = start.Add(TimeSpan.FromHours(1));
+        }
+
+        return timeSlots;
+    }
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bookings>
+  <Booking>
+    <BookingNo>1</BookingNo>
+    <EmployeeID>2</EmployeeID>
+    <PatientID>7</PatientID>
+    <BookingDate>2024-11-18</BookingDate>
+    <BookingTime>12:00</BookingTime>
+    <Status>1</Status>
+  </Booking>
+  <Booking>
+    <BookingNo>2</BookingNo>
+    <EmployeeID>2</EmployeeID>
+    <PatientID>11</PatientID>
+    <BookingDate>2024-11-22</BookingDate>
+    <BookingTime>09:00</BookingTime>
+    <Status>1</Status>
+  </Booking>
+  <Booking>
+    <BookingNo>3</BookingNo>
+    <EmployeeID>2</EmployeeID>
+    <PatientID>11</PatientID>
+    <BookingDate>2024-12-27</BookingDate>
+    <BookingTime>08:00</BookingTime>
+    <Status>1</Status>
+  </Booking>
+</Bookings>

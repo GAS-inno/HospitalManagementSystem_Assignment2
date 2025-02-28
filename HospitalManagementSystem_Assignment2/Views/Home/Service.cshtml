@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Our Service";
+}
+
+<div class="text-center">
+    <h1 class="display-2">@ViewData["Title"]</h1>
+</div>
+
+
+    <div class="container mt-5">
+        <div class="text-center">
+            <p class="lead">Providing compassionate and high-quality healthcare to the community</p>
+        </div>
+
+        <!-- Emergency Care Section -->
+        <div class="service-section">
+            <div class="row">
+                <div class="col-md-6">
+                <img src="~/images/emergency.jpg" alt="Emergency Care" class="service-img" width="400px" height="200px">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="service-title">Emergency Care</h2>
+                    <p class="service-description">
+                        Our 24-hour Emergency Department is equipped to handle a wide range of urgent medical conditions. With highly trained doctors, nurses, and support staff, we ensure prompt and efficient care in emergencies.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maternity Services Section -->
+        <div class="service-section">
+            <div class="row">
+                <div class="col-md-6">
+                <img src="~/images/Maternity.png" alt="Maternity Services" class="service-img" width="400px" height="200px">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="service-title">Maternity Services</h2>
+                    <p class="service-description">
+                        St. John of God Murdoch Hospital provides exceptional maternity care, including antenatal and postnatal support, labor and delivery services, and specialized care for both mothers and babies. Our maternity team ensures that every new parent experiences a smooth and safe journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cancer Care Section -->
+        <div class="service-section">
+            <div class="row">
+                <div class="col-md-6">
+                <img src="~/images/cancer.jpg" alt="Cancer Care" class="service-img" width="400px" height="200px">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="service-title">Cancer Care</h2>
+                    <p class="service-description">
+                        We offer comprehensive cancer care services, including diagnosis, treatment, and ongoing support. Our dedicated oncology team works closely with patients to provide personalized care that meets their individual needs and goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orthopaedics Section -->
+        <div class="service-section">
+            <div class="row">
+                <div class="col-md-6">
+                <img src="~/images/orthopaedics.jpeg" alt="Orthopaedics" class="service-img" width="400px" height="200px">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="service-title">Orthopaedics</h2>
+                    <p class="service-description">
+                        Our orthopaedic specialists provide expert care for musculoskeletal conditions, including joint replacement surgery, spinal surgery, and treatment for sports injuries. We utilize the latest technology and techniques to deliver the best outcomes for our patients.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Palliative Care Section -->
+        <div class="service-section">
+            <div class="row">
+                <div class="col-md-6">
+                <img src="~/images/palliative.jpeg" alt="Palliative Care" class="service-img" width="400px" height="200px">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="service-title">Palliative Care</h2>
+                    <p class="service-description">
+                        St. John of God Murdoch Hospital provides compassionate palliative care to support patients with serious or terminal illnesses. Our team works with patients and families to ensure comfort, dignity, and quality of life during challenging times.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!-- Contact Section -->
+        <div class="service-section text-center">
+        <a href="@Url.Action("Contact", "Home")" class="btn btn-primary btn-lg">Contact Us for More Information</a>
+        
+        </div>
+
+    </div>
+

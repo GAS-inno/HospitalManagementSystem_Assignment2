@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Attendances>
+  <Attendance>
+    <BookingNo>1</BookingNo>
+    <DiagnosisInfo>diagnosis test info1</DiagnosisInfo>
+    <Remark>remark test info1</Remark>
+    <Therapy>Therapy test info1</Therapy>
+  </Attendance>
+  <Attendance>
+    <BookingNo>2</BookingNo>
+    <DiagnosisInfo>test1</DiagnosisInfo>
+    <Remark>test1</Remark>
+    <Therapy />
+  </Attendance>
+</Attendances>

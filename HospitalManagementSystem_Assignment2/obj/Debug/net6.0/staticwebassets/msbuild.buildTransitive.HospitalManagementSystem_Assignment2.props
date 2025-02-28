@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\HospitalManagementSystem_Assignment2.props" />
+</Project>

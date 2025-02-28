@@ -1,0 +1,104 @@
+﻿@model HospitalManagementSystem_Assignment2.Models.Account
+
+@{
+    ViewData["Title"] = "Edit Doctor Account";
+}
+
+<div class="text-center">
+    <h1 class="display-2">@ViewData["Title"]</h1>
+</div>
+
+<!-- Alert prompt box-->
+<div id="comingSoonModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid #333; box-shadow:0px 4px 8px rgba(0,0,0,0.2); z-index:1000; text-align:center;">
+    <h3>Feature Unavailable</h3>
+    <p>The edit function is currently unavailable. This feature is coming soon!</p>
+    <button onclick="closeModal()">Go Back</button>
+</div>
+<div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+
+<!-- JavaScript for display -->
+<script type="text/javascript">
+    function showComingSoonModal(event) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById('comingSoonModal').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('comingSoonModal').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+        window.history.back(); // Redirect to the previous page
+    }
+</script>
+
+
+@using (Html.BeginForm("UpdateDoctor", "Admin", FormMethod.Post , new { onsubmit = "showComingSoonModal(event)" }))
+{
+    @Html.HiddenFor(m => m.ID)
+
+    <div class="form-group">
+        @Html.Label("First Name")
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Last Name")
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Email")
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger", @disabled = "disabled" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Phone")
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Gender")
+        <br />
+        @Html.RadioButtonFor(m => m.Gender, "Male") Male
+        @Html.RadioButtonFor(m => m.Gender, "Female") Female
+        @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Date of Birth")
+        @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", placeholder = "DD/MM/YYYY", @type = "date" })
+        @Html.ValidationMessageFor(m => m.DOB, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div id="doctorSpec" class="form-group">
+        @Html.LabelFor(m => m.Specialist)
+        @Html.TextBoxFor(m => m.Specialist, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </div>
+}
+    <br />
+    <div class="form-group">
+        <a href="@Url.Action("AccountManagement", "Admin")" class="btn btn-secondary">Go back </a>
+      
+    </div>
+    <br />

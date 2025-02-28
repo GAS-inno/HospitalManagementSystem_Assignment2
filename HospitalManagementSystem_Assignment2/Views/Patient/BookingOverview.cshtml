@@ -1,0 +1,97 @@
+﻿@model List<Booking>
+
+@{
+    ViewBag.Title = "My Appointment Booking";
+}
+<a href="@Url.Action("CreateBooking", "Patient", new { id = TempData["UserId"] })" class="btn btn-primary">Click! to Create a Booking</a>
+
+<div class="text-center">
+    <h1 class="display-2">@ViewData["Title"]</h1>
+</div>
+<br />
+
+@{
+    @if (TempData["BookingMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["BookingMessage"]
+        </div>
+    }
+
+    @if (TempData["DetailMessage"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["DetailMessage"]
+        </div>
+    }
+    @if (TempData["RemarkMessage"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["RemarkMessage"]
+        </div>
+    }
+    @if (TempData["TherapyMessage"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["TherapyMessage"]
+        </div>
+    }
+
+    <table class="table">
+        <tr>
+            <th scope="col">Booking No</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Booking Date</th>
+            <th scope="col">Booking Time</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+        </tr>
+
+        @if (Model != null)
+        {
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => booking.BookingNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => booking.DoctorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => booking.BookingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => booking.BookingTime)
+                    </td>
+                    <td>
+                        @if (booking.Status == 0)
+                        {
+                            <p>Created</p>
+                        }
+                        else
+                        {
+                            <p>Completed</p>
+                        }
+                    </td>
+                    <td>
+                        @if (booking.Status == 0)
+                        {
+                            @using (Html.BeginForm("CancelBooking", "Patient", new { id = booking.BookingNo }, FormMethod.Post))
+                            {
+                                <input type="submit" value="Cancel" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel this booking?');" />
+                            }
+                        }
+                        else
+                        {
+                            @using (Html.BeginForm("ShowDetail", "Patient", new { id = booking.BookingNo }, FormMethod.Post))
+                            {
+                                <input type="submit" value="Detail" class="btn btn-info"/>
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}

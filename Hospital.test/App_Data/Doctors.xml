@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Doctors>
+  <Doctor>
+    <EmployeeID>2</EmployeeID>
+    <Specialist>General Doctor</Specialist>
+  </Doctor>
+</Doctors>

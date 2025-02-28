@@ -1,0 +1,139 @@
+﻿@model HospitalManagementSystem_Assignment2.Models.Account
+
+@{
+    ViewData["Title"] = "Create User Account";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+</div>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+@using (Html.BeginForm("CreateAccount", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName, "First Name")
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName, "Last Name")
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LastName, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Phone, "Phone Number")
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Phone, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, "Confirm Password")
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Gender")
+        <div>
+           @*  @Html.RadioButtonFor(m => m.Gender, "Male") Male
+            @Html.RadioButtonFor(m => m.Gender, "Female") Female *@
+            @Html.RadioButtonFor(m => m.Gender, "Male", new { id = "Gender_Male" }) Male
+            @Html.RadioButtonFor(m => m.Gender, "Female", new { id = "Gender_Female" }) Female
+        </div>
+        @Html.ValidationMessageFor(m => m.Gender, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DOB, "Date of Birth")
+        @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @type = "date" })
+        @Html.ValidationMessageFor(m => m.DOB, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Account Role")
+        <div>
+            @Html.RadioButtonFor(m => m.AccountType, 0) Admin
+            @Html.RadioButtonFor(m => m.AccountType, 1) Doctor
+            @Html.RadioButtonFor(m => m.AccountType, 2) Patient
+        </div>
+    </div>
+
+
+    //hide and show for the additional field
+    <div id="doctorSpec" class="form-group">
+        @Html.LabelFor(m => m.Specialist)
+        @Html.TextBoxFor(m => m.Specialist, new { @class = "form-control" })
+    </div>
+    <br />
+    <div id="patientBG" class="form-group">
+        @Html.Label("Blood Group")
+        <br />
+      @*   @Html.RadioButtonFor(m => m.BloodGroup, "A") A
+        @Html.RadioButtonFor(m => m.BloodGroup, "B") B
+        @Html.RadioButtonFor(m => m.BloodGroup, "AB") AB
+        @Html.RadioButtonFor(m => m.BloodGroup, "O") O *@
+        @Html.RadioButtonFor(m => m.BloodGroup, "A", new { id = "BloodGroup_A" }) A
+        @Html.RadioButtonFor(m => m.BloodGroup, "B", new { id = "BloodGroup_B" }) B
+        @Html.RadioButtonFor(m => m.BloodGroup, "AB", new { id = "BloodGroup_AB" }) AB
+        @Html.RadioButtonFor(m => m.BloodGroup, "O", new { id = "BloodGroup_O" }) O
+    </div>
+    <br />
+    <div id="patientMH" class="form-group">
+        @Html.Label("Medical History")
+        @Html.TextAreaFor(m => m.MedicalHistory, new { @class = "form-control", rows = "4" })
+    </div>
+    <br />
+    <div id="patientDA" class="form-group">
+        @Html.Label("Drug Allergy")
+        @Html.TextAreaFor(m => m.DrugAllergy, new { @class = "form-control", rows = "4" })
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success" />
+        <input type="reset" value="Clear" id="clear" class="btn btn-danger" />
+    </div>
+    <br />
+    <div class="form-group">
+        <a href="@Url.Action("AccountManagement", "Admin")" class="btn btn-secondary">Go back </a>
+     
+    </div>
+    <br />
+}
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Hide all optional fields on page load
+            $("#doctorSpec, #patientBG, #patientMH, #patientDA").hide();
+
+            // Show or hide fields based on the selected account type
+            $("input[name='AccountType']").change(function () {
+                if (this.value == 1) { // Doctor
+                    $("#doctorSpec").show(); // Show specialization field
+                    $("#patientBG, #patientMH, #patientDA").hide(); // Hide patient fields
+                } else if (this.value == 2) { // Patient
+                    $("#doctorSpec").hide(); // Hide specialization field
+                    $("#patientBG, #patientMH, #patientDA").show(); // Show patient fields
+                } else { // Admin or others
+                    $("#doctorSpec, #patientBG, #patientMH, #patientDA").hide(); // Hide all optional fields
+                }
+            });
+
+            // Reset button to clear the form and hide all optional fields
+            $("#clear").click(function () {
+                $("#doctorSpec, #patientBG, #patientMH, #patientDA").reset();
+            });
+        });
+    </script>
+}
+

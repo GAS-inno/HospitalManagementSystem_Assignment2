@@ -1,0 +1,45 @@
+﻿@model HospitalManagementSystem_Assignment2.Models.Attendance
+
+@{
+    ViewData["Title"] = "Complete Attendance";
+}
+
+<div class="text-center">
+    <h1 class="display-2">@ViewData["Title"]</h1>
+</div>
+
+@if (TempData["CompleteErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["CompleteErrorMessage"]
+    </div>
+}
+
+@using (Html.BeginForm("CompleteAttendance", "Doctor", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Diagnosis Info")
+        @Html.TextAreaFor(m => m.DiagnosisInfo, new { @class = "form-control", rows = "4", required = "required" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Remark")
+        @Html.TextAreaFor(m => m.Remark, new { @class = "form-control", rows = "4" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Therapy")
+        @Html.TextAreaFor(m => m.Therapy, new { @class = "form-control", rows = "4" })
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Complete" class="btn btn-success" />
+        <input type="reset" value="Clear" class="btn btn-secondary" />
+    </div>
+    <br />
+    <div class="form-group">
+        <a href="@Url.Action("BookingList", "Doctor", new { id = TempData["UserId"] })" class="btn btn-info">Go back </a>
+      
+    </div>
+    <br />
+}
